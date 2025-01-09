@@ -1,0 +1,31 @@
+------------------------------
+INTRODUCTION
+------------------------------
+
+Purpose:
+This code is solving the Shallow Water Equations coupled with suspended load equation.
+After solving the flow field, the bed elevation is updated using Exner equation. Finite
+Volume Method is used with Roe's solver to calculate the fluxes at the cell faces. MUSCL
+scheme is used to extend the solution to second order accuracy. The code is made to work
+on structured grid and the used schemes are explicit. For more than one grain size for 
+the sediment, D50 must be used or the code must be modified.
+
+------------------------------
+INSTALLATION
+------------------------------
+
+Prerequisites:
+The code is written in legacy Fortran. The user has to install any version of Fortran
+to the computer first. For Windows users, it is highly recommended to install the 
+program in Windows Subsystem for Linux (WSL) for it to work properly.
+
+Installation:
+-In WSL, or Linux, navigate to the /SWE folder.
+-Write "gfortran -std=legacy -o swe_solver swe_solver.f" in the terminal.
+-This command will generate the "swe_solver" as an output.
+-Then navigate to the case, the program comes with "Contraction", and "Dam" cases.
+-In the case folder, writing "../SWE/swe_solver" will run the program.
+
+------------------------------
+CODE STRUCTURE
+------------------------------

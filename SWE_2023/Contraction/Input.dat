@@ -1,0 +1,51 @@
+1d2d
+2
+Water_Density
+1000
+no_of_time_steps
+10000
+H_inlet U_inlet V_inlet C_inlet(%)
+0.0300 2.051 0.0 1e-6
+constant_inflow_depth_option(1 for yes and 2 for no)
+1
+D50 R lamda
+1e-6  1.65 0.40
+neu
+ ks
+1.0e-6 250e-6
+Beta
+1.0
+cb"1 for Parker and 2 for Van rijn1984"
+1
+E "1 for Parker and 2 for Van rijn1984"
+1
+sourcce_option"1 for t=n and 2 for t=n+1/2"
+2
+write_output_file"1 for yes and 2 for no"
+1
+epso
+1e-3
+no_of_sections_to_write_" for max no of x-sec write down any huge number"
+1000
+output_file_formate"1 for simple 2 for comprehinsive better for debuging"
+1
+inital_condition_option"1  for read from another input file 2 use the intials in the code"
+2
+Boundary_condition_option"1  for read from another input file 2 use the original in the code"
+1
+Houtlet@the_D/s
+0.13
+Print_every_nprint_timestep
+100
+Add_source_term_in_the_predicted_values"1 for no 2 for yes"
+1
+H_correction"1 for yes and 0 for no"
+0
+Order_of accuracy
+2
+Allow_erosion(1 fo no and 2 for yes)
+1
+run_salt(1 for Noand 2 for yes)
+1
+allowe_bed_formation(1for yes and 2 for no)
+1
