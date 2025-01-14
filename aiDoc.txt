@@ -1,0 +1,117 @@
+Code Overview
+Purpose:
+
+Solve the shallow water equations coupled with the suspended load equation.
+Update bed elevation using Exner's equation.
+Utilize finite volume methods with Roe's solver for flux calculation.
+Extend the solution to second-order accuracy using the MUSCL scheme.
+Grid Type:
+
+The code works with structured grids.
+I will analyze the full file to produce detailed documentation covering:
+
+General Description - Purpose and methodology.
+Input Files - Format and required parameters.
+Output Files - Expected results and format.
+Workflow - How the code processes the inputs and produces outputs.
+Parameters and Functions - Key components of the code.
+Let me extract more details to create this documentation. ​​
+
+The Fortran code uses structured grid-based methods and allocates arrays for solving the shallow water equations and sediment transport. Based on the code preview, here is the structure and analysis to guide documentation creation:
+
+Detailed Documentation for Shallow Water Equation Solver Code
+1. Overview
+This Fortran program solves the Shallow Water Equations (SWEs) coupled with the suspended sediment transport equation. The solution updates bed elevation using Exner's equation. The program employs:
+
+Finite Volume Methods for numerical solution.
+Roe's Solver for flux calculation across cell faces.
+MUSCL (Monotonic Upstream-centered Scheme for Conservation Laws) to achieve second-order accuracy.
+Structured grids as the computational domain.
+The code is capable of handling:
+
+Sediment transport modeling with single or multiple grain sizes.
+Explicit time-stepping schemes for stability.
+2. Input Files
+The program requires three input files:
+
+General Properties File:
+
+Contains simulation settings like time step, solver parameters, and erosion settings.
+Example parameters: dtmax, Allow_erosion.
+Geometry File:
+
+Describes the computational grid.
+Includes cell coordinates and ghost cell definitions.
+Initial and Boundary Conditions File:
+
+Provides initial values for water depth, velocity components, and sediment concentration.
+Specifies boundary conditions for inflow, outflow, and walls.
+File Format: Each file is structured with clear sections for relevant parameters, typically read using READ statements in Fortran.
+
+3. Output Files
+The program generates:
+
+Flow Field Data:
+
+Velocity components (
+𝑈
+U, 
+𝑉
+V), water depth (
+𝐻
+H), and sediment concentration (
+𝐶
+C).
+Time series of flow evolution.
+Bed Elevation Updates:
+
+Final and intermediate bed elevations (
+𝑧
+𝑝
+z 
+p
+​
+ ) after Exner's equation updates.
+Diagnostics:
+
+Time step information, convergence status, and any critical errors.
+File Names: The output files are usually organized by time steps or iterations.
+
+4. Key Parameters
+Simulation Controls:
+
+dtmax: Maximum time step.
+Limiter: Controls numerical diffusion.
+Allow_erosion: Toggles erosion modeling.
+Grid Variables:
+
+x, y, z: Grid node coordinates.
+xo, yo, zo: Coordinates for ghost cells.
+xc, yc, zc: Cell-centered coordinates.
+Solution Variables:
+
+U, V: Velocity components.
+H: Water depth.
+C: Sediment concentration.
+zp: Bed elevation.
+5. Workflow
+Grid Initialization:
+
+Allocate memory for structured grid arrays.
+Read grid data from the Geometry File.
+Input Parsing:
+
+Load simulation parameters and initial conditions.
+Main Simulation Loop:
+
+Solve SWEs using finite volume methods.
+Compute fluxes at cell faces using Roe's solver.
+Update sediment transport using suspended load equations.
+Adjust bed elevation via Exner's equation.
+Output Writing:
+
+Save flow and sediment data at predefined intervals.
+6. Numerical Methods
+Roe's Solver: Calculates fluxes with high accuracy across cell interfaces.
+MUSCL Scheme: Extends first-order methods to second-order for better precision.
+Explicit Time-Stepping: Ensures stability, with a user-defined dtmax.
