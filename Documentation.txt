@@ -27,5 +27,7 @@ Installation:
 -In the case folder, writing "../SWE/swe_solver" will run the program.
 
 ------------------------------
-CODE STRUCTURE
+INPUT FILES
 ------------------------------
+
+Input.dat:

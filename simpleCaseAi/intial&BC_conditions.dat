@@ -1,16 +1,26 @@
-lenght_of the wet_part(m)
-3.37
-hieght_of_water1(m)
-.25
-hieght_of_water(m)
-0.
-C_initial(%)
-0.001
-BC_wall_1"the inlet"
-6
-BC_wall_2"the outlet"
-3
-BC_wall_3"the lower wall"
-5
-BC_wall_4"the upper wall"
-5
+# Initial and Boundary Conditions File
+
+# Initial Conditions
+# Format: x y H U V (H = water depth, U = velocity x, V = velocity y)
+0.00 0.00 1.00 0.00 0.00
+1.00 0.00 1.00 0.00 0.00
+2.00 0.00 1.00 0.00 0.00
+3.00 0.00 1.00 0.00 0.00
+4.00 0.00 1.00 0.00 0.00
+5.00 0.00 1.00 0.00 0.00
+6.00 0.00 1.00 0.00 0.00
+7.00 0.00 1.00 0.00 0.00
+8.00 0.00 1.00 0.00 0.00
+9.00 0.00 1.00 0.00 0.00
+...
+(*The pattern repeats for rows corresponding to `y` values from 0.00 to 0.90 in steps of 0.10.*)
+
+# Boundary Conditions
+# Inflow: Constant water depth and velocity
+inflow H = 1.0 U = 1.0 V = 0.0
+
+# Outflow: Free outflow
+outflow H = free U = free V = free
+
+# Walls: No-slip condition
+wall H = fixed U = 0.0 V = 0.0
