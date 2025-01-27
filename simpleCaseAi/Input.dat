@@ -1,5 +1,0 @@
-# Simulation General Properties
-dtmax = 0.01          # Maximum time step (s)
-nt = 1000             # Number of time steps
-Allow_erosion = 1     # Enable bed erosion
-Limiter = 1           # MUSCL limiter type
